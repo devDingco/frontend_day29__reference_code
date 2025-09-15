@@ -2,21 +2,25 @@ import { useCommentList } from "./hook";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Rate } from "antd";
+import profile_image from "@assets/profile_image.png";
+import fivestars from "@assets/fivestars.png";
+import edit from "@assets/edit.png";
+import close from "@assets/close.png";
 const IMAGE_SRC = {
   profileImage: {
-    src: require("@assets/profile_image.png"),
+    src: profile_image,
     alt: "프로필이미지",
   },
   starsImage: {
-    src: require("@assets/fivestars.png"),
+    src: fivestars,
     alt: "평점이미지",
   },
   editImage: {
-    src: require("@assets/edit.png"),
+    src: edit,
     alt: "편집버튼",
   },
   closeImage: {
-    src: require("@assets/close.png"),
+    src: close,
     alt: "삭제버튼",
   },
 };

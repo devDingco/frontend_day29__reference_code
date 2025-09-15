@@ -2,13 +2,15 @@ import { useCommentCreate } from "./hook";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Rate, Modal } from "antd";
+import chat from "@assets/chat.png";
+import fivestars from "@assets/fivestars.png";
 const IMAGE_SRC = {
   chatImage: {
-    src: require("@assets/chat.png"),
+    src: chat,
     alt: "댓글아이콘",
   },
   starsImage: {
-    src: require("@assets/fivestars.png"),
+    src: fivestars,
     alt: "평점",
   },
 };

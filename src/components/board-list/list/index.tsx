@@ -3,10 +3,11 @@ import Image from "next/image";
 import { IBoardList } from "./types";
 import { useBoardList } from "./hook";
 import { Modal } from "antd";
+import deleteImagePng from "@assets/delete.png";
 
 const IMAGE_SRC = {
   deleteImage: {
-    src: require("@assets/delete.png"),
+    src: deleteImagePng,
     alt: "삭제버튼",
   },
 };

@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import addImage from "@assets/add_image.png";
 import { useBoardWrite } from "./hook";
 import { IBoardWriteProps } from "./types";
 import { Modal } from "antd";
@@ -9,7 +10,7 @@ import DaumPostcodeEmbed from "react-daum-postcode";
 
 const IMAGE_SRC = {
   addImage: {
-    src: require("@assets/add_image.png"),
+    src: addImage,
     alt: "사진추가이미지",
   },
 };
@@ -18,14 +19,14 @@ export default function BoardWritePage(props: IBoardWriteProps) {
   const { isEdit } = props;
 
   const {
-    name,
+    writer,
     data,
-    nameError,
+    writerError,
     password,
     passwordError,
     title,
     titleError,
-    content,
+    contents,
     contentError,
     isButtonDisabled,
     onChangeName,
@@ -41,11 +42,11 @@ export default function BoardWritePage(props: IBoardWriteProps) {
     onSearchAddress,
     isAddressModalOpen,
     completeHandler,
-    zonecode,
+    zipcode,
     address,
-    setDetailAddress,
+    setAddressDetail,
     onChangeDetailAddress,
-    detailAddress,
+    addressDetail,
     youtubeUrl,
     onChangeYoutubeUrl,
   } = useBoardWrite(isEdit);
@@ -67,13 +68,13 @@ export default function BoardWritePage(props: IBoardWriteProps) {
               </div>
               <input
                 disabled={isEdit}
-                value={name}
+                value={writer}
                 type="text"
                 placeholder="작성자 명을 입력해 주세요."
                 className={isEdit ? styles.disabled_input : styles.enroll_input}
                 onChange={onChangeName}
               />
-              <div className={styles.error_msg}>{nameError}</div>
+              <div className={styles.error_msg}>{writerError}</div>
             </div>
             <div className={styles.flex_half}>
               <div className={styles.enroll_form_title}>
@@ -116,7 +117,7 @@ export default function BoardWritePage(props: IBoardWriteProps) {
             <div className={styles.enroll_required_indicator}> *</div>
           </div>
           <textarea
-            value={content}
+            value={contents}
             placeholder="내용을 입력해 주세요."
             className={`${styles.enroll_input} ${styles.enroll_textarea}`}
             onChange={onChangeContent}
@@ -127,13 +128,14 @@ export default function BoardWritePage(props: IBoardWriteProps) {
           <div className={styles.enroll_form_title}>
             <div>주소</div>
           </div>
+
           <div className={styles.enroll_address_firstrow}>
             <input
-              value={zonecode}
+              value={zipcode}
+              readOnly
               type="number"
               className={styles.zipcode_input}
               placeholder="12345"
-              readOnly
             />
             <button
               className={styles.zipcode_search_button}
@@ -144,14 +146,14 @@ export default function BoardWritePage(props: IBoardWriteProps) {
           </div>
 
           <input
+            readOnly
             value={address}
             placeholder="주소를 입력해주세요."
             className={styles.enroll_input}
             type="text"
-            readOnly
           />
           <input
-            value={detailAddress}
+            value={addressDetail}
             placeholder="상세주소"
             className={styles.enroll_input}
             type="text"
@@ -194,7 +196,7 @@ export default function BoardWritePage(props: IBoardWriteProps) {
               ? `${styles.enroll_submit_button} ${styles.disabled}`
               : styles.enroll_submit_button
           }
-          onClick={onClickSignup}
+          onClick={(e) => onClickSignup(e)}
           disabled={!isEdit && isButtonDisabled}
         >
           {isEdit ? "수정" : "등록"}하기

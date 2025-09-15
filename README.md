@@ -1,14 +1,32 @@
-# frontend_day30__reference_code
-1. 공통
-    - [ ]  완성된 day29 폴더를 활용하여 day30을 완성해 주세요.
-    - [ ]  레이아웃으로 사용할 컴포넌트를 src/commons/layout 경로에 만들어 줍니다.
-        - [ ]  src/commons/layout/navigation/index.tsx 경로에 내비게이션UI를 새롭게 작성합니다.
-        - [ ]  src/commons/layout/banner/index.tsx 경로에 게시글목록에서 만들었었던
-        src/components/boards-list/banner/index.tsx 경로의 코드를 이동시켜 줍니다.
-        - [ ]  src/commons/layout/index.tsx 경로에서 내비게이션, 배너 2개의 컴포넌트를 조립합니다.
-        - [ ]  게시글등록, 게시글수정 2개의 페이지에서는 배너를 노출시키지 않습니다.
-        - [ ]  완성된 레이아웃 컴포넌트를 src/app/layout.tsx 경로에 불러와서 조립합니다.(children을 감싸주세요.)
-2. 컴포넌트[리팩토링]
-    - [ ]  레이아웃내비게이션, 레이아웃배너 컴포넌트의 파일을 보완해 주세요.
-        - [ ]  타입에러가 감지되어 빨간 밑줄이 그어지는 부분에 타입스크립트를 적용하여 문제를 해결해 주세요.
-        - [ ]  유지보수가 쉽도록 파일을 hook.ts, index.tsx, queries.ts, styles.ts, types.ts 로 분리해 주세요.
+## 과제 요구 사항
+
+### 공통
+
+- [ ]  완성된 `day27` 폴더를 활용하여 `day29` 를 완성해 주세요.
+- [ ]  `src/app/globals.css` 파일을 아래와 같이 보완해 주세요.
+    - [ ]  모든 HTML 태그에 `margin: 0`, `padding: 0`, `box-sizing: border-box`를 적용하여 초기 스타일을 설정해 주세요.
+    - [ ]  `Pretendard-Regular.woff2` 폰트 파일을 적용하여 웹페이지의 기본 폰트로 사용해 주세요.
+- [ ]  현재까지 작성된 모든 `alert` 경고창을 사용자 경험을 개선하기 위해 모달(Modal) 형태의 경고창으로 변경해 주세요.
+    - 라이브러리 제한은 없으며, MUI 또는 Ant Design 사용을 추천해요.
+- [ ]  레이아웃과 관련된 컴포넌트를 그룹화하기 위해 아래 경로의 폴더에 컴포넌트를 구현해 주세요.
+    - [ ]  **경로:** `src/commons/layout`
+    - [ ]  네비게이션 UI를 새롭게 작성해 주세요.
+    - [ ]  게시글 목록에 만든 배너 코드를 아래로 이동시켜 주세요.
+        - [ ]  경로: `src/commons/layout/banner/index.tsx`
+    - [ ]  네비게이션, 배너 컴포넌트를 조립하여 레이아웃 컴포넌트를 만들어 주세요.
+        - [ ]  경로:  `src/commons/layout/index.tsx`
+    - [ ]  완성된 레이아웃 앱 레이아웃에 조립해 주세요.
+        - [ ]  **경로:** `src/app/layout.tsx`
+
+### 레이아웃 컴포넌트 리팩토링
+
+네비게이션 및 배너 컴포넌트를 리팩토링 해주세요.
+
+- [ ]  타입 에러가 감지된 부분에 타입 스크립트를 적용하여 문제를 해결해 주세요.
+- [ ]  유지보수 및 탐색이 쉽도록 파일을 분리해 주세요.
+    - [ ]  파일 목록:
+        - [ ]  `hook.ts`
+        - [ ]  `index.tsx`
+        - [ ]  `queries.ts`
+        - [ ]  `styles.ts`
+        - [ ]  `types.ts`
